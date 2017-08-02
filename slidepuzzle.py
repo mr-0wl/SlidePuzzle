@@ -80,8 +80,11 @@ def main():
                         mainBoard, solutionSeq = generateNewPuzzle(80) #clicked new game
                         allMoves = []
                     elif SOLVE_RECT.collidepoint(event.pos):
-                        resetAnimation(mainBoard, solutionSeq + allMoves) #clicked solve button
-                        allMoves = []
+                        if mainBoard == SOLVEDBOARD:
+                            msg = 'Solved!'
+                        elif mainBoard != SOLVEDBOARD:
+                            resetAnimation(mainBoard, solutionSeq + allMoves) #clicked solve button
+                            allMoves = []
                 else:
                         #check if the clicked tile was next to the blank spot
 
